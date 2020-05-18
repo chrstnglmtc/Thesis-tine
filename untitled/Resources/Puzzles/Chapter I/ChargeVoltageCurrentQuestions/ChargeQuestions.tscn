@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Puzzles/Puzzle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Resources/Puzzles/Chapter I/ChargeVoltageCurrentQuestions/ChargeQuestions.gd" type="Script" id=2]
+
+[node name="ChargeQuestions" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Background" parent="." index="0"]
+color = Color( 0.345098, 0.345098, 0.345098, 1 )
+
+[node name="InstructionLabel1" type="Label" parent="." index="2"]
+margin_left = 5.83176
+margin_top = 18.6616
+margin_right = 317.832
+margin_bottom = 49.6616
+text = "Charge is bipolar, meaning that electrical effects 
+are descrcibed in terms of positive and negative."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bipolar" type="LineEdit" parent="InstructionLabel1" index="0"]
+margin_left = 62.9931
+margin_top = -3.8728
+margin_right = 120.993
+margin_bottom = 20.1272
+rect_scale = Vector2( 0.8, 0.8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InstructionLabel2" type="Label" parent="." index="3"]
+margin_left = 5.83176
+margin_top = 73.2664
+margin_right = 317.832
+margin_bottom = 104.266
+text = "In Circuit Theory, the separation of charge
+ creates:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Voltage" type="LineEdit" parent="InstructionLabel2" index="0"]
+margin_left = 66.8517
+margin_top = 16.9952
+margin_right = 124.852
+margin_bottom = 40.9952
+rect_scale = Vector2( 0.8, 0.8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Current" type="LineEdit" parent="InstructionLabel2" index="1"]
+margin_left = 131.708
+margin_top = 16.8393
+margin_right = 189.708
+margin_bottom = 40.8393
+rect_scale = Vector2( 0.8, 0.8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WarningLabel" type="Label" parent="." index="4"]
+margin_left = 94.4744
+margin_top = 129.465
+margin_right = 134.474
+margin_bottom = 143.465
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Submit" type="Button" parent="." index="5"]
+margin_left = 19.828
+margin_top = 127.132
+margin_right = 76.828
+margin_bottom = 147.132
+text = "Submit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_entered" from="InstructionLabel1/Bipolar" to="." method="_on_Bipolar_text_entered"]
+[connection signal="text_entered" from="InstructionLabel2/Voltage" to="." method="_on_Voltage_text_entered"]
+[connection signal="text_entered" from="InstructionLabel2/Current" to="." method="_on_Current_text_entered"]
+[connection signal="pressed" from="Submit" to="." method="_on_Submit_pressed"]

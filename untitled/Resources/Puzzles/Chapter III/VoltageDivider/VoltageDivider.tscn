@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Resources/Objects/Circuit/VoltageDivider.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Puzzles/Puzzle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Resources/Objects/Circuit/plus.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Objects/Circuit/minus.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Puzzles/Chapter III/VoltageDivider/VoltageDivider.gd" type="Script" id=5]
+
+[node name="VoltageDivider" instance=ExtResource( 2 )]
+script = ExtResource( 5 )
+
+[node name="Background" parent="." index="0"]
+color = Color( 0.447059, 0.447059, 0.447059, 1 )
+
+[node name="InstructionLabel" type="Label" parent="." index="2"]
+margin_left = 10.7142
+margin_top = 6.93274
+margin_right = 50.7142
+margin_bottom = 20.9327
+text = "Voltage Divider, get the voltage Around Vo"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WarningLabel" type="Label" parent="." index="3"]
+margin_left = 204.16
+margin_top = 136.147
+margin_right = 244.16
+margin_bottom = 150.147
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VoltageValue" type="Label" parent="." index="4"]
+margin_left = 160.0
+margin_top = 120.746
+margin_right = 187.0
+margin_bottom = 134.746
+text = "Vo"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Submit" type="Button" parent="." index="5"]
+margin_left = 196.328
+margin_top = 107.773
+margin_right = 253.328
+margin_bottom = 127.773
+text = "Submit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VoltageUp" type="Button" parent="." index="6"]
+margin_left = 151.323
+margin_top = 95.3005
+margin_right = 179.323
+margin_bottom = 117.301
+icon = ExtResource( 3 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VoltageDown" type="Button" parent="." index="7"]
+margin_left = 152.323
+margin_top = 137.852
+margin_right = 180.323
+margin_bottom = 159.852
+icon = ExtResource( 4 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="." index="8"]
+position = Vector2( 98.1728, 97.7421 )
+scale = Vector2( 0.2569, 0.2569 )
+texture = ExtResource( 1 )
+[connection signal="pressed" from="Submit" to="." method="_on_Submit_pressed"]
+[connection signal="pressed" from="VoltageUp" to="." method="_on_VoltageUp_pressed"]
+[connection signal="pressed" from="VoltageDown" to="." method="_on_VoltageDown_pressed"]

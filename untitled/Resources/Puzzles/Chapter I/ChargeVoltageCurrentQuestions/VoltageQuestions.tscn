@@ -1,0 +1,87 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Puzzles/Puzzle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Resources/Puzzles/Chapter I/ChargeVoltageCurrentQuestions/VoltageQuestions.gd" type="Script" id=2]
+
+[node name="VoltageQuestions" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Background" parent="." index="0"]
+margin_left = -0.698334
+margin_right = -0.698334
+color = Color( 0.352941, 0.352941, 0.352941, 1 )
+
+[node name="InstructionLabel" type="Label" parent="." index="2"]
+margin_left = 15.1626
+margin_top = 11.6635
+margin_right = 55.1626
+margin_bottom = 25.6635
+text = "Voltage is the difference in electric potential
+between two points."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Voltage" type="LineEdit" parent="InstructionLabel" index="0"]
+margin_left = -0.349632
+margin_top = -4.54081
+margin_right = 57.6504
+margin_bottom = 19.4592
+rect_scale = Vector2( 0.8, 0.8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InstructionLabel2" type="Label" parent="." index="3"]
+margin_left = 16.0459
+margin_top = 67.2322
+margin_right = 302.046
+margin_bottom = 98.2322
+text = "Voltage is the energy per unit charge created
+by the separation. V = dw/dq"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Energy" type="LineEdit" parent="InstructionLabel2" index="0"]
+margin_left = 90.5769
+margin_top = -3.86922
+margin_right = 148.577
+margin_bottom = 20.1308
+rect_scale = Vector2( 0.8, 0.8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Charge" type="LineEdit" parent="InstructionLabel2" index="1"]
+margin_left = 162.0
+margin_top = -4.0
+margin_right = 253.0
+margin_bottom = 20.0
+rect_scale = Vector2( 0.8, 0.8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WarningLabel" type="Label" parent="." index="4"]
+margin_left = 85.3967
+margin_top = 135.302
+margin_right = 171.397
+margin_bottom = 149.302
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Submit" type="Button" parent="." index="5"]
+margin_left = 14.3736
+margin_top = 133.982
+margin_right = 26.3736
+margin_bottom = 153.982
+text = "Submit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_entered" from="InstructionLabel/Voltage" to="." method="_on_Voltage_text_entered"]
+[connection signal="text_entered" from="InstructionLabel2/Energy" to="." method="_on_Energy_text_entered"]
+[connection signal="text_entered" from="InstructionLabel2/Charge" to="." method="_on_Charge_text_entered"]
+[connection signal="pressed" from="Submit" to="." method="_on_Submit_pressed"]

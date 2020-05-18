@@ -1,0 +1,122 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Puzzles/Puzzle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Resources/Puzzles/Chapter III/SeriesParallel/Parallel.gd" type="Script" id=2]
+[ext_resource path="res://Objects/Elements/Resistor/Resistor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Elements/CircuitNode/CircuitNode.tscn" type="PackedScene" id=4]
+
+[node name="Parallel" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Background" parent="." index="0"]
+color = Color( 0.407843, 0.407843, 0.407843, 1 )
+
+[node name="InstructionLabel" type="Label" parent="." index="2"]
+margin_left = 22.1607
+margin_top = 10.4972
+margin_right = 208.161
+margin_bottom = 24.4972
+text = "Connect R1 and R2 in Parallel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WarningLabel" type="Label" parent="." index="3"]
+margin_left = 198.28
+margin_top = 85.1438
+margin_right = 238.28
+margin_bottom = 99.1438
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resistor1" parent="." index="4" instance=ExtResource( 3 )]
+position = Vector2( 142.769, 69.682 )
+
+[node name="Button" type="Button" parent="Resistor1" index="3"]
+margin_left = -16.0
+margin_top = -9.0
+margin_right = 15.0
+margin_bottom = 11.0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Resistor1" index="4"]
+margin_left = -6.82745
+margin_top = -16.5809
+margin_right = 33.1725
+margin_bottom = -2.58095
+text = "R1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resistor2" parent="." index="5" instance=ExtResource( 3 )]
+position = Vector2( 142.727, 98.349 )
+
+[node name="Button" type="Button" parent="Resistor2" index="3"]
+margin_left = -16.0
+margin_top = -9.0
+margin_right = 15.0
+margin_bottom = 11.0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Resistor2" index="4"]
+margin_left = -6.82745
+margin_top = -16.5809
+margin_right = 33.1725
+margin_bottom = -2.58095
+text = "R2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Submit" type="Button" parent="." index="6"]
+margin_left = 208.031
+margin_top = 55.132
+margin_right = 265.031
+margin_bottom = 75.132
+text = "Submit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CircuitNode" parent="." index="7" instance=ExtResource( 4 )]
+position = Vector2( 42.144, 54.575 )
+
+[node name="CircuitNode2" parent="." index="8" instance=ExtResource( 4 )]
+position = Vector2( 91.38, 54.575 )
+
+[node name="CircuitNode3" parent="." index="9" instance=ExtResource( 4 )]
+position = Vector2( 42.144, 104.41 )
+
+[node name="CircuitNode4" parent="." index="10" instance=ExtResource( 4 )]
+position = Vector2( 91.372, 104.41 )
+
+[node name="Wire1" type="Line2D" parent="." index="11"]
+width = 1.5
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="Wire2" type="Line2D" parent="." index="12"]
+width = 1.5
+default_color = Color( 1, 1, 1, 1 )
+[connection signal="area_entered" from="Resistor1" to="." method="_on_Resistor1_area_entered"]
+[connection signal="area_exited" from="Resistor1" to="." method="_on_Resistor1_area_exited"]
+[connection signal="pressed" from="Resistor1/Button" to="Resistor1" method="_on_Button_pressed"]
+[connection signal="area_entered" from="Resistor2" to="." method="_on_Resistor2_area_entered"]
+[connection signal="area_exited" from="Resistor2" to="." method="_on_Resistor2_area_exited"]
+[connection signal="pressed" from="Resistor2/Button" to="Resistor2" method="_on_Button_pressed"]
+[connection signal="pressed" from="Submit" to="." method="_on_Submit_pressed"]
+[connection signal="area_entered" from="CircuitNode" to="Resistor1" method="_on_CircuitNode_area_entered"]
+[connection signal="area_entered" from="CircuitNode" to="Resistor2" method="_on_CircuitNode_area_entered"]
+[connection signal="area_entered" from="CircuitNode2" to="Resistor1" method="_on_CircuitNode_area_entered"]
+[connection signal="area_entered" from="CircuitNode2" to="Resistor2" method="_on_CircuitNode_area_entered"]
+[connection signal="area_entered" from="CircuitNode3" to="Resistor1" method="_on_CircuitNode_area_entered"]
+[connection signal="area_entered" from="CircuitNode3" to="Resistor2" method="_on_CircuitNode_area_entered"]
+[connection signal="area_entered" from="CircuitNode4" to="Resistor1" method="_on_CircuitNode_area_entered"]
+[connection signal="area_entered" from="CircuitNode4" to="Resistor2" method="_on_CircuitNode_area_entered"]
